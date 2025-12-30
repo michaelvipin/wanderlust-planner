@@ -32,33 +32,48 @@ const EnquiryForm = () => {
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+  try {
+    const res = await fetch("http://localhost:5000/api/enquiry", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    if (!res.ok) throw new Error("Failed");
+
     toast({
       title: "Enquiry Submitted!",
       description: "Our travel expert will contact you within 24 hours.",
     });
 
-    // Reset form after delay
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        fullName: "",
-        phone: "",
-        email: "",
-        destination: "",
-        travelDate: "",
-        travelers: "",
-        message: "",
-      });
-    }, 3000);
-  };
+    setIsSubmitted(true);
+
+    setFormData({
+      fullName: "",
+      phone: "",
+      email: "",
+      destination: "",
+      travelDate: "",
+      travelers: "",
+      message: "",
+    });
+  } catch (err) {
+    toast({
+      title: "Submission Failed",
+      description: "Please try again.",
+      variant: "destructive",
+    });
+  } finally {
+    // 🔥 THIS IS NON-NEGOTIABLE
+    setIsSubmitting(false);
+  }
+};
+
 
   if (isSubmitted) {
     return (

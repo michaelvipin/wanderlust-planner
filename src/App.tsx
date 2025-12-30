@@ -4,8 +4,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import AdminEnquiries from "./AdminEnquiries";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +20,11 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+            {/* ✅ ADMIN ROUTE */}
+            <Route path="/admin/enquiries" element={<AdminEnquiries />} />
+
+            {/* ❌ MUST BE LAST */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
