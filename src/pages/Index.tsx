@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>WanderlustTravels | Plan Less. Travel More. - Custom Travel Planning</title>
+        <title>Wanderra&Co | Plan Less. Travel More. - Custom Travel Planning</title>
         <meta
           name="description"
           content="Discover personalized travel plans for families, couples & groups. Expert trip planning, honeymoon packages, group tours, and corporate travel services. Book your dream vacation today!"

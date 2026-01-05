@@ -20,7 +20,7 @@ const Header = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <span className="text-xl md:text-2xl font-display font-bold text-primary">
-              Wanderra<span className="text-secondary">Travels</span>
+              Wanderra<span className="text-secondary">&Co</span>
             </span>
           </a>
 
