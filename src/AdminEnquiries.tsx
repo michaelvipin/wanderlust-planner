@@ -17,7 +17,7 @@ const AdminEnquiries = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/enquiries")
+    fetch("/api/enquiries")
       .then((res) => res.json())
       .then((data) => {
         setEnquiries(data);
