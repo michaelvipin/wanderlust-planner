@@ -15,19 +15,26 @@ type Enquiry = {
 const AdminEnquiries = () => {
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
   const [loading, setLoading] = useState(true);
+useEffect(() => {
+  fetch("/api/enquiries")
+    .then(async (res) => {
+      const data = await res.json();
 
-  useEffect(() => {
-    fetch("/api/enquiries")
-      .then((res) => res.json())
-      .then((data) => {
-        setEnquiries(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-  }, []);
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to fetch enquiries");
+      }
+
+      // ✅ Ensure array
+      setEnquiries(Array.isArray(data) ? data : []);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("Admin fetch error:", err);
+      setEnquiries([]); // ✅ prevents map crash
+      setLoading(false);
+    });
+}, []);
+
 
   if (loading) return <p className="p-6">Loading enquiries...</p>;
 
