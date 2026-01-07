@@ -29,8 +29,11 @@ export default async function handler(req: any, res: any) {
     );
 
     return res.status(201).json({ success: true });
-  } catch (err) {
-    console.error("DB ERROR:", err);
-    return res.status(500).json({ error: "Failed to submit enquiry" });
-  }
+  } catch (err: any) {
+  console.error("DB ERROR FULL:", err);
+  return res.status(500).json({
+    error: err.message,
+    code: err.code,
+  });
+}
 }

@@ -15,8 +15,12 @@ export default async function handler(req: any, res: any) {
       "SELECT * FROM enquiries ORDER BY created_at DESC"
     );
     return res.status(200).json(result.rows);
-  } catch (err) {
-    console.error("DB ERROR:", err);
-    return res.status(500).json({ error: "Failed to fetch enquiries" });
-  }
+  } catch (err: any) {
+  console.error("DB ERROR FULL:", err);
+  return res.status(500).json({
+    error: err.message,
+    code: err.code,
+  });
+}
+
 }
