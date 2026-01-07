@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/919876543210?text=Hi, I'm interested in booking a travel package.", "_blank");
+    window.open("https://wa.me/916369665703?text=Hi, I'm interested in booking a travel package.", "_blank");
   };
 
   return (
@@ -81,8 +81,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 text-secondary mt-0.5" />
                 <div>
-                  <a href="tel:+919876543210" className="hover:text-secondary transition-colors">
-                    +91 98765 43210
+                  <a href="tel:+916369665703" className="hover:text-secondary transition-colors">
+                    +91 6369665703
                   </a>
                   <button
                     onClick={openWhatsApp}

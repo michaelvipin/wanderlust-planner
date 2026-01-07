@@ -54,9 +54,9 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="tel:+919876543210" className="flex items-center gap-2 text-primary font-medium">
+            <a href="tel:+916369665703" className="flex items-center gap-2 text-primary font-medium">
               <Phone className="h-4 w-4" />
-              +91 98765 43210
+              +91 6369665703
             </a>
             <Button variant="accent" onClick={() => scrollToSection("enquiry")}>
               Enquire Now
