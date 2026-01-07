@@ -14,13 +14,9 @@ export default async function handler(req: any, res: any) {
     const result = await pool.query(
       "SELECT * FROM enquiries ORDER BY created_at DESC"
     );
-    return res.status(200).json(result.rows);
+    res.status(200).json(result.rows);
   } catch (err: any) {
-  console.error("DB ERROR FULL:", err);
-  return res.status(500).json({
-    error: err.message,
-    code: err.code,
-  });
-}
-
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
 }

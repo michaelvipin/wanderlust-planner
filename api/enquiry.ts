@@ -28,12 +28,9 @@ export default async function handler(req: any, res: any) {
       [fullName, phone, email, destination, travelDate, travelers, message]
     );
 
-    return res.status(201).json({ success: true });
+    res.status(201).json({ success: true });
   } catch (err: any) {
-  console.error("DB ERROR FULL:", err);
-  return res.status(500).json({
-    error: err.message,
-    code: err.code,
-  });
-}
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
 }
