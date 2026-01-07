@@ -1,4 +1,7 @@
+import { Helmet } from "react-helmet-async";
+
 import { useEffect, useState } from "react";
+
 
 type Enquiry = {
   id: number;
@@ -40,7 +43,11 @@ useEffect(() => {
 
   return (
     <div className="p-6">
+      <Helmet>
+        <title>Admin • Travel Enquiries</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-4">Travel Enquiries</h1>
+       {loading && <p>Loading enquiries...</p>}
 
       <div className="overflow-x-auto">
         <table className="w-full border border-gray-200 rounded-lg">
