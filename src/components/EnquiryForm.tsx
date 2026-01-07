@@ -36,7 +36,7 @@ const EnquiryForm = () => {
   setIsSubmitting(true);
 
   try {
-    const res = await fetch("http://localhost:5000/api/enquiry", {
+    const res = await fetch("/api/enquiry", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
