@@ -11,16 +11,18 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
         {/* Background Video */}
     <div className="absolute inset-0 overflow-hidden">
       <video
-        src={heroVideo}
+        src={heroImage}
         autoPlay
         loop
         muted
         playsInline
         className="w-full h-full object-cover"
-      />
+    />
 </div>
 
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-primary/40" />
