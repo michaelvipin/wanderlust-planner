@@ -11,8 +11,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
         {/* Background Video */}
     <div className="absolute inset-0 overflow-hidden">
       <video
